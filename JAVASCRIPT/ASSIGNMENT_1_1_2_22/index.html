@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan assignment one</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <style>
+    .row{
+      margin: 20px;
+    }
+    .row>.col-12{
+      display: flex;
+      justify-content: center;
+    }
+    button{
+      margin: 10px;
+    }
+    .card .card-body{
+      width: 700px !important;
+    }
+  </style>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Loan system</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link "href="#"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Emi Calculator</h4>
+            <form action="#" name="loan_form" onsubmit=" return calculate()">
+              <div class="form-group">
+                <label>Applicant Name</label>
+                <input type="text" class="form-control" name="name">
+              </div>
+              <div class="form-group">
+                <label>Loan Amount</label>
+                <input type="number" class="form-control" name="amount">
+              </div>
+              <div class="form-group">
+                <label>Loan type</label>
+                <select class="form-control" name="type" onchange="setRateAndDuration(this.value)">
+                  <option selected>Select Type</option>
+                  <option value="1">Home</option>
+                  <option value="2">Car</option>
+                  <option value="3">Personal</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Duration</label>
+                <input type="number" class="form-control" name="duration" min=1>
+              </div>
+              <div class="form-group">
+                <label>Rate of Intereste</label>
+                <input type="number" class="form-control" name="roi" readonly>
+              </div>
+              <div class="form-group">
+                <label>Emi</label>
+                <input type="text" class="form-control" name="emi">
+              </div>
+              <button  class="btn btn-primary" >Calculate</button>
+              <button class="btn btn-danger" type="reset">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function calculate(){
+      var amount = document.loan_form.amount.value;
+      var duration = document.loan_form.duration.value;
+      var roi = document.loan_form.roi.value;
+      var name = document.loan_form.name.value;
+      var type = document.loan_form.type.value;
+      var totalIntereste = (amount * duration * roi)/100;
+      var total = amount + totalIntereste;
+      var emi = total/12;
+      document.loan_form.emi.value = emi;
+      return false;
+    }
+
+    function setRateAndDuration(type){
+      if(type == 1){
+        document.loan_form.roi.value = 7;
+        document.loan_form.duration.max = 25;
+      }
+      else if(type == 2){
+        document.loan_form.roi.value = 9;
+        document.loan_form.duration.max = 7;
+      }
+      if(type == 3){
+        document.loan_form.roi.value = 12;
+        document.loan_form.duration.max = 5;
+      }
+    }
+
+  </script>
+</body>
+</html>
