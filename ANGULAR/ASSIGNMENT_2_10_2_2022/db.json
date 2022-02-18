@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@admin",
+      "pwd": "admin",
+      "mobile": "123456789",
+      "edit": false
+    },
+    {
+      "name": "Sujay Thakurata",
+      "pwd": "12345678",
+      "email": "Sujay_Thakurta@epam.com",
+      "mobile": "6289657006",
+      "edit": false,
+      "id": 2
+    },
+    {
+      "name": "test2",
+      "pwd": "12345678",
+      "email": "test2@test.com",
+      "mobile": "1234567890",
+      "edit": false,
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "pId": 1,
+      "pName": "test",
+      "pDesc": "test",
+      "pCost": "123456",
+      "edit": false
+    },
+    {
+      "pName": "mobile",
+      "pId": "2",
+      "pDesc": "it's a new mboile ",
+      "pCost": "3456",
+      "edit": false,
+      "id": 2
+    }
+  ]
+}
