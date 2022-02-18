@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+}
+#username{
+  text-transform: capitalize;
+}
+.container{
+  margin-top: 20px;
+}
+.table-section, .util-section{
+  margin: 10px;
+}
+.util-section>.col-12{
+  text-align: right;
+}
+.table-name{
+  text-transform: capitalize;
+}
