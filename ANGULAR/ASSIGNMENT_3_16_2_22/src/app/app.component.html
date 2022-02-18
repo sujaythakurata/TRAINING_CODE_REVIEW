@@ -1,0 +1,143 @@
+<div class="content">
+  <span>{{title}}</span>
+</div>
+<div class="row template-form mt-2 mb-2">
+  <div class="col-12">
+    <div class="card" class="card ms-auto me-auto" style="width: 50%;">
+      <div class="card-body">
+        <h4 class="card-title">
+          Template Driven Form
+        </h4>
+        <div class="row">
+          <div class="col-12">
+            <form>
+              <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="tempName">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" name="email"  class="form-control" [(ngModel)]="tempEmail">
+              </div>
+              <div class="form-group">
+                <label for="">Age</label>
+                <input type="text" name="age"  class="form-control" [(ngModel)]="tempAge">
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input type="text" name="pwd" class="form-control" [(ngModel)]="tempPwd">
+              </div>
+              <div class="mt-2">
+                <button class="btn btn-success" (click)="tempSubmit()">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row reative-form mt-2 mb-2">
+  <div class="col-12">
+    <div class="card ms-auto me-auto" style="width: 50%;">
+      <div class="card-body">
+        <h4 class="card-title">
+          Reactive Form with custom Validation
+        </h4>
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="reForm">
+              <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" name="name" class="form-control" formControlName="reName" required minlength="4" autocomplete="off">
+                <small class="form-text  text-danger"
+                  *ngIf="reForm.controls['reName'].invalid && (reForm.controls['reName'].dirty || reForm.controls['reName'].touched)"
+                >
+                  <p *ngIf="reForm.controls['reName'].errors?.['required']">
+                    this field is required
+                  </p>
+                  <p *ngIf="reForm.controls['reName'].errors?.['minlength']">
+                    name must be 4 word length
+                  </p>
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" name="email"  class="form-control" formControlName="reEmail">
+                <small class="form-text  text-danger"
+                  *ngIf="reForm.controls['reEmail'].invalid && (reForm.controls['reEmail'].dirty || reForm.controls['reEmail'].touched)"
+                >
+                  <p *ngIf="reForm.controls['reEmail'].errors?.['required']">
+                    this field is required
+                  </p>
+                  <p *ngIf="reForm.controls['reEmail'].errors?.['minlength']">
+                    name must be 6 word length
+                  </p>
+                  <p *ngIf="reForm.controls['reEmail'].errors?.['emailValidate']">
+                    email must end with .com
+                  </p>
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="">Age</label>
+                <input type="number" name="age"  class="form-control" formControlName="reAge" required min="18">
+                <small class="form-text  text-danger"
+                  *ngIf="reForm.controls['reAge'].invalid && (reForm.controls['reAge'].dirty || reForm.controls['reAge'].touched)"
+                >
+                  <p *ngIf="reForm.controls['reAge'].errors?.['required']">
+                    this field is required
+                  </p>
+                  <p *ngIf="reForm.controls['reAge'].errors?.['min']">
+                    age must be 18 years
+                  </p>
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input type="text" name="pwd" class="form-control" formControlName="rePwd" required minlength="8">
+                <small class="form-text  text-danger"
+                  *ngIf="reForm.controls['rePwd'].invalid && (reForm.controls['rePwd'].dirty || reForm.controls['rePwd'].touched)"
+                >
+                  <p *ngIf="reForm.controls['rePwd'].errors?.['required']">
+                    this field is required
+                  </p>
+                  <p *ngIf="reForm.controls['rePwd'].errors?.['minlength']">
+                    name must be 8 word length
+                  </p>
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input type="text" name="pwd" class="form-control" formControlName="reConfirmPwd" required minlength="8">
+                <small class="form-text  text-danger"
+                  *ngIf="reForm.controls['reConfirmPwd'].invalid && (reForm.controls['reConfirmPwd'].dirty || reForm.controls['reConfirmPwd'].touched)"
+                >
+                  <p *ngIf="reForm.controls['reConfirmPwd'].errors?.['required']">
+                    this field is required
+                  </p>
+                  <p *ngIf="reForm.controls['rePwd'].errors?.['minlength']">
+                    name must be 8 word length
+                  </p>
+                  <p *ngIf="reForm.controls['reConfirmPwd'].errors?.['pwdValidate']">
+                    password should be match
+                  </p>
+                </small>
+                <small class="form-text  text-success"
+                  *ngIf="reForm.controls['reConfirmPwd'].dirty || reForm.controls['reConfirmPwd'].touched"
+                >
+                  <p *ngIf="!reForm.controls['reConfirmPwd'].errors?.['pwdValidate']">
+                    password matched
+                  </p>
+                </small>
+              </div>
+              <div class="mt-2">
+                <!--  -->
+                <button class="btn btn-success" type="button" (click)="reSubmit()" [hidden]="reForm.invalid">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
