@@ -1,0 +1,56 @@
+.carousel-img{
+  height: 500px;
+  background-position: center;
+  }
+.carousel-img{
+  object-fit: cover;
+  object-position: center;
+}
+.card-img-top{
+  height: 200px;
+}
+.card-section{
+  margin-top: 30px;
+  padding:0;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.img-background{
+  background-image: url("../assets/images/img-7.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.img-background-scroll{
+  height: 500px;
+  margin-top: 20px;
+}
+.subscription{
+  margin-top: 10px;
+  text-align: center;
+}
+.subscription>.col-12, .subscription>.col-12>.card{
+  height: 300px;
+  background-color: black;
+}
+
+.subscription>.col-12>.card>.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* .footer{
+  margin-top:20px;
+} */
+.footer>.col-12{
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
+  background-color: black;
+  color: #fff;
+}
+.container-fluid{}
