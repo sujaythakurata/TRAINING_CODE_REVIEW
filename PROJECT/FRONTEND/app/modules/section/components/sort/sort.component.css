@@ -1,0 +1,29 @@
+.sort>.row>.col-12{
+  padding: 20px;
+}
+.price{
+  display: flex;
+  justify-content: space-between;
+}
+.price>span{
+  width: 50px;
+  margin-left: 5px;
+}
+
+.star-list{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.black{
+  color:#000;
+}
+.golden{
+  color:gold;
+}
+.star{
+  cursor: pointer;
+}
+.star:hover, .fa-star:hover{
+  color:gold
+}

@@ -1,0 +1,86 @@
+.deals-section{
+  height: 600px;
+  margin-top: 60px;
+}
+.sec-1, .sec-2{
+  margin-right: 0;
+  margin-left: 0;
+}
+.sec-2{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.sec-1>.col-12{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 20px;
+}
+.sec-1>.col-12>a{
+  text-decoration: none;
+  font-weight: 500;
+  width: 100px;
+  height: 40px;
+  border: 1px solid;
+}
+
+.sec-1>.col-12>a:hover{
+  background-color: #000;
+  color: #fff;
+}
+
+
+
+.cart-btn{
+  height: 60px;
+  width: 100%;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 18px;
+  border: 1px solid;
+  padding-top: 5%;
+  margin-top: 25px;
+}
+
+.p-img>img{
+  height: 200px;
+}
+.p-title, .p-review{
+  text-transform: capitalize;
+  text-align: center;
+  margin: 10px auto 10px auto;
+}
+
+.p-review{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.cart-btn:hover{
+  background-color: #000;
+  color:#fff
+}
+.product{
+  height: 450px;
+}
+.p-img{
+  height: 50%;
+}
+.p-body{
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.cart-btn{
+  height: 15%;
+}
+.product-body{
+  padding-bottom: 20px;
+}

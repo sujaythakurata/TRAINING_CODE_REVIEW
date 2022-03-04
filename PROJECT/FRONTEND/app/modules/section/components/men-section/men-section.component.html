@@ -1,0 +1,71 @@
+<div class="row products-container ms-0 me-0 mt-5">
+  <div class="col-12 loading-screen" *ngIf="loading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="col-12 text-center" *ngIf="productData?.length == 0">
+    <img src="../../../../../assets/images/noting_found.jpg" alt="" style="width:auto; height: 300px;">
+  </div>
+  <div class="row ms-0 me-0"  *ngIf="!loading">
+    <div class="col-4 deals-list"*ngFor="let product of productData">
+      <div class="product card">
+        <div class="product-body card-body" appViewdetails>
+          <div class="p-img">
+            <img src="{{product.image}}" class="w-100" alt="">
+            <div class="view-details" style="display: none;">
+              <button class="btn btn-dark" (click)="setModalData(product)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-body mt-1">
+            <h6 class="p-title">{{product.title}}</h6>
+            <div class="p-review">
+              Category: {{product.category}}
+            </div>
+            <div class="p-rating text-center">
+              <i class="fa fa-star" [ngClass]="product.rating>=1?'golden':'black'"></i>
+              <i class="fa fa-star" [ngClass]="product.rating>=2?'golden':'black'"></i>
+              <i class="fa fa-star" [ngClass]="product.rating>=3?'golden':'black'"></i>
+              <i class="fa fa-star" [ngClass]="product.rating>=4?'golden':'black'"></i>
+              <i class="fa fa-star" [ngClass]="product.rating>=5?'golden':'black'"></i>
+            </div>
+          </div>
+          <app-cart-button [product]="product" [loggedIn]="loggedIn"></app-cart-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body card">
+        <div class="row card-body">
+          <div class="col-5 modal-product-img" >
+            <img [src]="productImg" alt="product Image">
+          </div>
+          <div class="col-7">
+            <h4 class="card-title">
+              {{productTitle}}
+            </h4>
+            <p>
+              {{productDesc}}
+            </p>
+            <div class="btn-section">
+              <div >
+                Category: <span class="text-info">{{productType}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

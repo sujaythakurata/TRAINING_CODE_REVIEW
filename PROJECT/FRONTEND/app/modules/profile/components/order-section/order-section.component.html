@@ -1,0 +1,101 @@
+<div class="container-fulid card">
+  <div class="row">
+    <div class="col-12">
+      <div class="card-header">
+        <h4 class="card-title">
+          Orders History
+        </h4>
+      </div>
+      <div class="card-body">
+        <div *ngIf="loading" class="row">
+          <div class="col-12 text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div class="empty text-center" *ngIf="orderList.length == 0 && !loading">
+          <img src="../../../../../assets/images/empty_order.jpg" alt="empty order" style="width:auto; height: 300px;">
+        </div>
+        <div class="row" *ngIf="!loading && orderList.length > 0">
+          <div class="col-12">
+            <div class="order-list">
+              <div class="order-item card mb-2" *ngFor="let order of orderList; let index = index;">
+                <div class="card-header order-info bg-dark text-white" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#order-'+order.id" aria-expanded="false" [attr.aria-controls]="'order-'+order.id">
+                  <p>Order Id: <span class="text-info">sku-{{order.id}}</span></p>
+                  <p>Total Amount: <span class="text-info">{{order.total_amount | currency:'INR'}}</span></p>
+                  <p>
+                    Current Status: 
+                    <span [ngClass]="'me-2 badge ' + statusClass(order.order_status)">{{order.order_status | orderStatus}}</span>
+                    <span>Placed On:</span>
+                    <span class="text-info">{{order.createdAt | date:'medium'}}</span>
+                  </p>
+                  <div>
+                    <p class="text-white">
+                      View Details
+                    </p>
+                  </div>
+                </div>
+                <div class="collapse mt-2 card-body" id="order-{{order.id}}">
+                  <app-status-line [status]="order.order_status"></app-status-line>
+                  <table class="w-100">
+                     <tbody class="mt-2">
+                      <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                          <tr class="text-center">
+                            <th>#</th>
+                            <th></th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Quntity</th>
+                            <th>Total Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let product of order.carts; let index = index">
+                            <td class="text-center">
+                              {{index + 1}}
+                            </td>
+                            <td>
+                              <img [src]="product.image" alt="" class="product-img">
+                            </td>
+                            <td>
+                              {{product.title}}
+                            </td>
+                            <td class="text-center">
+                              {{product.price | currency:'INR'}}
+                            </td>
+                            <td class="text-center">
+                              {{product.quntity}}
+                            </td>
+                            <td class="text-success text-center">
+                              {{product.quntity * product.price | currency:'INR'}}
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-success fw-bold text-center" style="width:300px; display:flex;">Total Amount + <span class="badge bg-danger ms-2">Including Tax</span></td>
+                            <td class="text-danger text-center" style="width:150px">
+                              {{order.total_amount | currency:'INR'}}
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                     </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</div>

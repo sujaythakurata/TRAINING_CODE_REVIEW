@@ -1,0 +1,10 @@
+/* .prortfolio, #carouselExampleCaptions{
+  height: 400px;
+} */
+
+.carousel-item>img{
+  object-fit: cover !important;
+  object-position: 0 25% !important;
+  height: 600px;
+  width: 100%;
+}

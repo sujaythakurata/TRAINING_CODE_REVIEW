@@ -1,0 +1,126 @@
+<div class="container-fluid mt-5">
+  <div *ngIf="loading" class="row">
+    <div class="col-12 text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="subTotal>0 && loggedIn && !loading">
+    <div class="col-8">
+      <div class="card product-list">
+        <div class="card-body">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th></th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quntity</th>
+                <th>Total Amount</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productList; let index = index">
+                <td class="text-center">
+                  {{index + 1}}
+                </td>
+                <td>
+                  <img [src]="product.image" alt="" class="product-img">
+                </td>
+                <td>
+                  {{product.title}}
+                </td>
+                <td class="text-center">
+                  {{product.cartInfo.price | currency:'INR'}}
+                </td>
+                <td class="text-center">
+                  {{product.cartInfo.quntity}}
+                </td>
+                <td class="text-success text-center">
+                  {{product.cartInfo.quntity * product.cartInfo.price | currency:'INR'}}
+                </td>
+                <td style="width:180px;">
+                  <app-cart-button [product]="product" [loggedIn]="loggedIn"></app-cart-button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card address">
+            <div class="card-body" style="width:100%">
+              <span style="width:100%">
+                <span class="" *ngIf="userData.address">
+                  <i class="fa fa-truck me-1 text-info"></i>
+                  {{userData.address}}
+                </span>
+                <span class="text-center" *ngIf="!userData.address" style="display: flex;justify-content: center;">
+                  <button class="btn btn-danger" routerLink="/profile/user">
+                    Add Address
+                  </button>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-12">
+          <div class="price-list card">
+            <div class="card-body">
+              <table class="table table-striped">
+                <tbody class="fw-bold">
+                  <tr>
+                    <td>
+                      Subtotal
+                    </td>
+                    <td>
+                     {{subTotal | currency:'INR'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tax @ <span class="text-info">{{rate}}%</span> + 
+                      <span *ngIf="total>=500" class="badge bg-danger">Free shipped</span>
+                      <span *ngIf="total<500"class="badge bg-info">Delevery fee {{shipFee | currency:'INR'}}</span>
+                    </td>
+                    <td class="text-danger">
+                      {{tax | currency:'INR'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-success fw-bold">
+                      Total
+                    </td>
+                    <td class="text-success fw-bold">
+                      {{total | currency:'INR'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button class="btn btn-danger w-100" (click)="placeOrder()">
+                        Checkout
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="subTotal == 0 && loggedIn && !loading">
+    <div class="col-12 text-center">
+      <img class="empty-cart" src="../../../../../assets/images/empty_cart.jpg" alt="empty_cart">
+    </div>
+  </div>
+</div>

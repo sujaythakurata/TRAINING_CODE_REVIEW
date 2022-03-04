@@ -1,0 +1,23 @@
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-3">
+      <div class="card menu">
+        <div class="card-body">
+          <button class="btn btn-outline btn-default " routerLinkActive="btn-primary" routerLink="/profile/user/">
+            Profile
+          </button>
+          <button class="btn btn-outline btn-default" routerLinkActive="btn-primary" routerLink="/profile/order">
+            My Orders
+          </button>
+          <!-- <button class="btn btn-outline btn-default" routerLinkActive="btn-primary" routerLink="/profile/address">
+            Address
+          </button> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

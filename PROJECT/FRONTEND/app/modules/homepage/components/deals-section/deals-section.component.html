@@ -1,0 +1,31 @@
+<section class="deals-section">
+<div class="row sec-1">
+  <div class="col-12">
+    <h1>Today's Top Picks</h1>
+    <a href="/section/1" class="btn">View more</a>
+  </div>
+</div>
+<div class="row sec-2">
+  <div class="col-12 loading-screen" *ngIf="productData == undefined">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+    <div class="col-3 deals-list" *ngFor="let product of productData">
+      <div class="product card">
+        <div class="product-body card-body">
+          <div class="p-img">
+            <img src="{{product.image}}" class="w-100" alt="">
+          </div>
+          <div class="p-body">
+            <h4 class="p-title">{{product.title}}</h4>
+            <div class="p-review">
+              Category: {{product.category}}
+            </div>
+          </div>
+          <app-cart-button [product]="product" [loggedIn]="loggedIn"></app-cart-button>
+        </div>
+      </div>
+    </div>
+</div>
+</section>

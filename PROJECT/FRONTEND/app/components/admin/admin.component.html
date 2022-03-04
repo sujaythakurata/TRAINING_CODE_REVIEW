@@ -1,0 +1,38 @@
+<div class="container-fluid mt-5">
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Order Id</th>
+          <th>Order Status</th>
+          <th>Select Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of ordersList;let index = index;">
+          <td>{{index + 1}}</td>
+          <td>sku-{{order.id}}</td>
+          <td>{{order.order_status | orderStatus}}</td>
+          <td>
+            <div class="from-group">
+              <select name="order_status" id="" class="form-control" 
+              [(ngModel)]="order.order_status">
+                <option value="1">Shipped</option>
+                <option value="2">Order Delivered</option>
+              </select>
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-success" (click)="updateStatus(order.id, order.order_status)">
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
