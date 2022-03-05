@@ -34,8 +34,8 @@ module.exports = config = {
     secureConnection: true,
     service: 'Gmail',
     auth:{
-      user:'user name',
-      pass:'password'
+      user:'',
+      pass:''
     },
     tls: {
       ciphers:'SSLv3'
@@ -43,8 +43,8 @@ module.exports = config = {
   },
   paymentsHeader:{
     "content-type":"application/json",
-    "x-client-id":"1393111135bcb5f719e8637ae3113931",
-    "x-client-secret":"aadfd83b55578a81db4eabe475970eefe8fec00f",
+    "x-client-id":"",
+    "x-client-secret":"",
     "x-api-version":"2022-01-01",
     "access-control-allow-origin":'*',
     "accept-encoding":"gzip, deflate, br",
