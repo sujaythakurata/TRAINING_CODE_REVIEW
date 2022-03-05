@@ -34,8 +34,8 @@ module.exports = config = {
     secureConnection: true,
     service: 'Gmail',
     auth:{
-      user:'',
-      pass:''
+      user:'user name',
+      pass:'password'
     },
     tls: {
       ciphers:'SSLv3'
