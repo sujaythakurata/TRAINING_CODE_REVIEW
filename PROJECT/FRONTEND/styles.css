@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+*{
+  padding: 0;
+  margin:0;
+  font-family: 'EB Garamond', serif;
+}
+body{
+  width: 100%;
+  height: auto;
+}

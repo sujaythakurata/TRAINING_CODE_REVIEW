@@ -1,0 +1,13 @@
+.product-img{
+  height: 100px;
+  width: 100px;
+}
+
+.container-fluid{
+  min-height: 400px;
+}
+
+.empty-cart{
+  width: auto;
+  height: 400px;
+}

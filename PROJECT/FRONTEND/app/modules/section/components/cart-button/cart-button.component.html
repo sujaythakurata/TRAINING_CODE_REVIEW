@@ -1,0 +1,22 @@
+
+<div class="cart-btn btn" (click)="displayAddCartButton(false)" *ngIf="displayButton == false">
+  <span>
+    <i class="fa fa-shopping-cart"></i>
+    Add To cart
+  </span>
+  <span>{{product?.price | currency:'INR'}}</span>
+</div>
+
+<div class="add-cart-btn btn" *ngIf="displayButton == true">
+  <div class="body">
+    <div class="btn btn-danger btn-sm" (click)="desc()">
+      <i class="fa fa-minus"></i>
+    </div>
+    <div class="count">
+      {{product?.count}}
+    </div>
+    <div class="btn btn-success btn-sm" (click)="incr()">
+      <i class="fa fa-plus"></i>
+    </div>
+  </div>
+</div>

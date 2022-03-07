@@ -1,0 +1,44 @@
+<section class="sort mt-5">
+  <div class="row ms-0 me-0">
+    <div class="col-12">
+      <h4>
+        Filter
+        <span><i class="fa fa-filter"></i></span>
+      </h4>
+      <form class="custom-range">
+      <label class="form-label">Price Range From <span class="text-info">{{5| currency:'INR'}} - {{1000| currency:'INR'}}</span></label>
+      <div class="price">
+        <input type="range" class="form-range range" min="5" max="1000" step="5" name="priceRange" [(ngModel)]="priceRange" (change)="filterPrice()">
+        <span class="text-info">{{priceRange | currency:'INR'}}</span>
+      </div>
+      <div class="rating mt-3">
+        <h5>
+          Rating
+        </h5>
+        <div class="star-list">
+          <div class="star me-4 s-1" (click)="filterRating(1)">
+            <i [class]="'fa fa-star '+ startList[0]"></i>
+          </div>
+          <div class="star me-4" (click)="filterRating(2)">
+            <i [class]="'fa fa-star '+ startList[1]"></i>
+          </div>
+          <div class="star me-4" (click)="filterRating(3)">
+            <i [class]="'fa fa-star '+ startList[2]"></i>
+          </div>
+          <div class="star me-4" (click)="filterRating(4)">
+            <i [class]="'fa fa-star '+ startList[3]"></i>
+          </div>
+          <div class="star me-4" (click)="filterRating(5)">
+            <i [class]="'fa fa-star '+ startList[4]"></i>
+          </div>
+        </div>
+      </div>
+      <div class="reset-filter mt-3">
+        <button class="btn btn-danger" (click)="resetFilter()">
+          Reset
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</section>

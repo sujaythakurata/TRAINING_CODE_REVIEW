@@ -1,0 +1,14 @@
+.product-img{
+  width: auto;
+  height: 100px;
+}
+.order-info{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 40px;
+}
+
+.container-fulid{
+  min-height: 300px;
+}
