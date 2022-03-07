@@ -1,0 +1,28 @@
+{
+  "admins": [
+    {
+      "id": 1,
+      "user_name": "admin",
+      "password": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": 2,
+      "user_name": "sujay",
+      "password": "123456",
+      "name": "sujay Thakurata"
+    }
+  ],
+  "students": [
+    {
+      "name": "Sujay Thakurata",
+      "course": "BBA",
+      "age": "22",
+      "mobile_no": "6289657006",
+      "address": "Adarshpally\nRifle Range Road AFADA",
+      "roll": "40842",
+      "registration_no": "50003",
+      "id": 1
+    }
+  ]
+}
