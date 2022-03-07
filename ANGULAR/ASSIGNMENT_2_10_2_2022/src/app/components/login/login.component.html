@@ -1,0 +1,31 @@
+<div class="row login-block ">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body block">
+        <div class="block-holder">
+            <div class="block-1">
+            </div>
+            <div class="block-2">
+              <h5 class="text-center mb-4">Login</h5>
+              <form action="#">
+                <p class="alert" [class]="loginClass" *ngIf="loginStyle">{{result}}</p>
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input #name type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="">Password</label>
+                  <input #pwd type="password" class="form-control">
+                </div>
+                <div style="display: flex;justify-content: center;flex-direction: column;">
+                  <button type="button" class="btn btn-danger mt-2 me-2 btn-1" (click)="login(name.value, pwd.value)">Login</button>
+                  <div style="text-align: center;margin-top:20px;">Or</div>
+                  <button class=" btn btn-primary btn-2" routerLinkActive="active" routerLink="register">Sign Up</button> 
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="row product-table">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body" style="width: 100%;">
+        <div style="display: flex;justify-content: flex-end;">
+          <a class="btn btn-primary mb-2 mt-2 me-2" routerLink="./add">Add Product</a>
+          <a class="btn btn-danger mb-2 mt-2 me-2" (click)="pService.getProducts()">Reset</a>
+        </div>
+        <h4 class="card-title">
+          Product List
+        </h4>
+        <div style="width: 100%; display: flex;justify-content: center;">
+          <table class="table table-stripe" style="width:1000px">
+            <thead class="bg-dark" style="color: #fff;">
+              <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Cost</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td><input type="number" class="form-control" placeholder="Enter Id" #fid></td>
+                <td><input type="text" class="form-control" placeholder="Enter Name" #fname></td>
+                <td><input type="text" class="form-control" placeholder="Enter Description" #fdesc></td>
+                <td><input type="number" class="form-control" placeholder="Enter cost" #fcost></td>
+                <td>
+                    <button class="btn btn-primary" (click)="pService.filterData(fid, fname, fdesc, fcost)">
+                      <i class="fa fa-filter"></i>
+                    </button>
+                </td>
+                <td></td>
+              </tr>
+              <tr *ngFor="let obj of pService.productList; let index = index;">
+                <td>{{index+1}}</td>
+                <td>
+                  <span *ngIf="obj.edit != true">{{obj.pId}}</span>
+                  <input type="text" value="{{obj.pId}}" [(ngModel)]="obj.pId" *ngIf="obj.edit">
+                </td>
+                <td>
+                  <span *ngIf="obj.edit != true">
+                    <span appShowPassword>{{obj.pName}}</span>
+                  </span>
+                  <input type="text" value="{{obj.pName}}" [(ngModel)]="obj.pName" *ngIf="obj.edit" name="index">
+                </td>
+                <td>
+                  <span *ngIf="obj.edit != true">{{obj.pDesc}}</span>
+                  <input  type="text" value="{{obj.pDesc}}" [(ngModel)]="obj.pDesc" *ngIf="obj.edit">
+                </td>
+                <td>
+                  <span *ngIf="obj.edit != true">{{obj.pCost | currency:'INR'}}</span>
+                  <input  type="text" value="{{obj.pCost}}" [(ngModel)]="obj.pCost" *ngIf="obj.edit">
+                </td>
+                <td><button class="btn btn-danger"(click)="pService.removeProduct(index)"><i class="fa fa-trash"></i></button></td>
+                <td>
+                  <button class="btn btn-primary"(click)="pService.editProduct(index)" *ngIf="obj.edit!=true"><i class="fa fa-edit"></i></button>
+                  <div style="display: flex; justify-content: space-around;" *ngIf="obj.edit">
+                    <button class="btn btn-success btn-sm me-2" (click)="pService.confirmProductEdit(index)"><i class="fa fa-check"></i></button>
+                    <button class="btn btn-danger btn-sm"  (click)="pService.cancelProductEdit(index)"><i class="fa fa-close"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

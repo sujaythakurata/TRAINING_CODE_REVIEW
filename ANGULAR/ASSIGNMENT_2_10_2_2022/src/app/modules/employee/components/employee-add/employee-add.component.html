@@ -1,0 +1,38 @@
+<div class="row sign-up add-user">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: flex;justify-content: flex-end;">
+          <a class="btn btn-primary mb-2 mt-2 ms-auto me-2" routerLink="/employee">View User List</a>
+        </div>
+        <div class="block">
+          <h4 class="text-center">Add New Employee</h4>
+          <h4 class="alert" [class]="loginClass" [style]="loginStyle">{{result}}</h4>
+          <form action="#">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input #name type="text" class="form-control" [class]="nameClass" required>
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input #pwd type="password" class="form-control" [class]="pwdClass" required>
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input #email type="text" class="form-control" [class]="emailClass" required>
+            </div>
+            <div class="form-group">
+              <label for="">Mobile No</label>
+              <input  #mobile type="text" class="form-control" [class]="mobileClass" required>
+            </div>
+            <div style="display: flex;justify-content: center;">
+              <button type="button" class="btn btn-success me-2 mt-1" (click)="register(
+              name, pwd, email, mobile
+              )">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

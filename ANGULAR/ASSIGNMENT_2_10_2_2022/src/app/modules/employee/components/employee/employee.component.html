@@ -1,0 +1,62 @@
+<div class="row user-table">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body" style="width: 100%;">
+        <div style="display: flex;justify-content: flex-end;">
+          <a routerLink="./add" class="btn mb-2 mt-2 me-2 btn-success">Add User</a>
+        </div>
+        <h4 class="card-title">
+          Users List
+        </h4>
+        <div style="width: 100%; display: flex;justify-content: center;">
+          <table class="row-border hover" style="width:1000px" datatable [dtOptions]="dtOptions"  [dtTrigger]="dtTrigger">
+            <thead class="bg-dark" style="color: #fff;">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Remove</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of userList; let index = index;">
+                <td>{{index+1}}</td>
+                <td>
+                  <span *ngIf="obj.edit != true">{{obj.name}}</span>
+                  <input #nameEdit type="text" value="{{obj.name}}" [(ngModel)]="obj.name" *ngIf="obj.edit">
+                </td>
+                <td>
+                  <span *ngIf="obj.edit != true">
+                    <span appShowPassword>{{obj.pwd}}</span>
+                  </span>
+                  <input #pwdEdit type="text" value="{{obj.pwd}}" [(ngModel)]="obj.pwd" *ngIf="obj.edit" name="index">
+                </td>
+                <td>
+                  <span *ngIf="obj.edit != true">{{obj.email}}</span>
+                  <input #emailEdit type="text" value="{{obj.email}}" [(ngModel)]="obj.email" *ngIf="obj.edit">
+                </td>
+                <td>
+                  <span *ngIf="obj.edit != true">{{obj.mobile}}</span>
+                  <input #mobileEdit type="text" value="{{obj.mobile}}" [(ngModel)]="obj.mobile" *ngIf="obj.edit">
+                </td>
+                <td><button class="btn btn-danger"(click)="removeUser(index)"><i class="fa fa-trash"></i></button></td>
+                <td>
+                  <button class="btn btn-primary"(click)="editUser(index)" *ngIf="obj.edit!=true"><i class="fa fa-edit"></i></button>
+                  <div style="display: flex; justify-content: space-around;" *ngIf="obj.edit">
+                    <button class="btn btn-success btn-sm me-2" (click)="confirmEdit(index)"><i class="fa fa-check"></i></button>
+                    <button class="btn btn-danger btn-sm"  (click)="cancelEdit(index)"><i class="fa fa-close"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
